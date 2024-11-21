@@ -1,0 +1,163 @@
+.publication-time-chart {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  margin: clamp(0.5rem, 2vw, 1rem);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  height: 400px;
+  width: 100%;
+}
+
+.publication-time-chart:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.publication-time-chart h3 {
+  margin: 0 0 clamp(1rem, 3vw, 1.5rem);
+  color: #1a1a1a;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  text-align: center;
+  font-weight: 600;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Aspect ratio 1:1 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.chart-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.clock-face {
+  fill: none;
+  stroke: #e0e0e0;
+  stroke-width: clamp(0.5px, 0.2vw, 1px);
+}
+
+.hour-label {
+  font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+  fill: #666;
+  font-weight: 500;
+  transition: font-size 0.3s ease;
+}
+
+.legend-text {
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+  fill: #333;
+  transition: font-size 0.3s ease;
+}
+
+path {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+path:hover {
+  opacity: 0.9 !important;
+  transform: scale(1.02);
+}
+
+/* Tooltip styles */
+.chart-tooltip {
+  position: absolute;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+  z-index: 100;
+  transition: all 0.2s ease;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .publication-time-chart {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 640px) {
+  .publication-time-chart {
+    height: 300px;
+    padding: var(--spacing-sm);
+  }
+
+  .chart-container {
+    margin: 0 -0.5rem;
+  }
+
+  .legend-text {
+    font-size: 0.7rem;
+  }
+}
+
+/* Small mobile breakpoint */
+@media (max-width: 360px) {
+  .publication-time-chart {
+    padding: 0.75rem;
+  }
+
+  .publication-time-chart h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .hour-label {
+    font-size: 0.55rem;
+  }
+
+  .legend-text {
+    font-size: 0.65rem;
+  }
+}
+
+/* Support for high-density displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .clock-face {
+    stroke-width: 0.5px;
+  }
+}
+
+/* Support for dark mode */
+@media (prefers-color-scheme: dark) {
+  .publication-time-chart {
+    background: #1a1a1a;
+  }
+
+  .publication-time-chart h3 {
+    color: #fff;
+  }
+
+  .clock-face {
+    stroke: #333;
+  }
+
+  .hour-label {
+    fill: #999;
+  }
+
+  .legend-text {
+    fill: #ccc;
+  }
+
+  .chart-tooltip {
+    background: rgba(26, 26, 26, 0.95);
+    color: #fff;
+  }
+}

@@ -1,38 +1,104 @@
+:root {
+  /* Color Palette */
+  --color-primary: #3395ff;
+  --color-primary-hover: #1a75ff;
+  --color-secondary: #666666;
+  
+  /* Background Colors */
+  --bg-main: #1a1a1a;
+  --bg-card: #242424;
+  --bg-header: #242424;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --text-muted: #666666;
+  
+  /* Border Colors */
+  --border-color: #333333;
+  --border-hover: var(--color-primary);
+  
+  /* Shadow Effects */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  
+  /* Container Widths */
+  --container-max: 1600px;
+  --card-max: 400px;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: var(--bg-main);
+  transition: background-color var(--transition-normal);
+  overflow-x: hidden;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.App__content {
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(2rem, 4vh, 3rem);
+  padding-left: clamp(1rem, 3vw, 2rem);
+  padding-right: clamp(1rem, 3vw, 2rem);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Dark mode */
+.dark-mode {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
+}
+
+/* Dark mode scrollbar */
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: #3395ff;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #66aeff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .App__content {
+    padding-top: 3.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
